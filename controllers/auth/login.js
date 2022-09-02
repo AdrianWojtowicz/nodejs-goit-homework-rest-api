@@ -12,7 +12,7 @@ const login = async (req, res) => {
     res.status(400).json({ message: "Błąd z Joi lub innej biblioteki walidacji" });
     return;
   }
-  const { email, password, subscription } = req.body;
+  const { email, password } = req.body;
   const user = await User.findOne({ email });
   if (!user) {
     res.status(401).json({ message: "Email or password is wrong found" });
@@ -32,7 +32,7 @@ const login = async (req, res) => {
     token,
     user: {
       email,
-      subscription,
+      subscription: user.subscription,
     },
   });
 }
