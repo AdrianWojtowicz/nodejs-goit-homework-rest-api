@@ -1,3 +1,4 @@
 const ctrlWrapper = require("./ctrlWrapper");
+const sendEmail = require("./sendEmail");
 
-module.exports = { ctrlWrapper }
+module.exports = { ctrlWrapper, sendEmail }
